@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    The delivery date field, right after the shipping methods.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="zero.checkout.shipping.after">
+            <block class="Magento\Framework\View\Element\Template" name="zero.delivery.date"
+                   template="Zero_DeliveryDate::checkout/delivery-date.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Zero\DeliveryDate\ViewModel\Checkout</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

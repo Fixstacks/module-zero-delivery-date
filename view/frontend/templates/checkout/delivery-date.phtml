@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright © 2026 Roman Pasichnyk
+ * SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+ *
+ * The delivery date (and time window) under the shipping methods: plain
+ * selects of the days on offer, so excluded days never show and nothing
+ * needs JavaScript. Posted as zero_delivery[date] / zero_delivery[slot];
+ * Model\PlaceOrder\DeliveryDate checks them on Place Order.
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Zero\DeliveryDate\ViewModel\Checkout $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+if (!$viewModel->isEnabled()) {
+    return;
+}
+$options = $viewModel->options();
+if (!$options) {
+    return;
+}
+$required = $viewModel->isRequired();
+$slots = $viewModel->slots();
+$currentDate = $viewModel->currentDate();
+$currentSlot = $viewModel->currentSlot();
+?>
+<div class="zero-delivery-date mt-4 flex flex-col gap-3 rounded-field border border-base-300 p-4">
+    <div class="field<?= $required ? ' required' : '' ?>">
+        <label class="label" for="zero-delivery-date"><?= $escaper->escapeHtml($viewModel->label()) ?></label>
+        <select name="zero_delivery[date]" id="zero-delivery-date" class="select select-bordered w-full"<?= $required ? ' required' : '' ?>>
+            <?php if (!$required) : ?>
+                <option value=""><?= $escaper->escapeHtml(__('No preference')) ?></option>
+            <?php endif; ?>
+            <?php foreach ($options as $date => $label) : ?>
+                <option value="<?= $escaper->escapeHtmlAttr($date) ?>"<?= $date === $currentDate ? ' selected' : '' ?>>
+                    <?= $escaper->escapeHtml($label) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <?php if ($slots) : ?>
+        <div class="field">
+            <label class="label" for="zero-delivery-slot"><?= $escaper->escapeHtml(__('Delivery time')) ?></label>
+            <select name="zero_delivery[slot]" id="zero-delivery-slot" class="select select-bordered w-full">
+                <?php foreach ($slots as $slot) : ?>
+                    <option value="<?= $escaper->escapeHtmlAttr($slot) ?>"<?= $slot === $currentSlot ? ' selected' : '' ?>>
+                        <?= $escaper->escapeHtml($slot) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    <?php endif; ?>
+</div>

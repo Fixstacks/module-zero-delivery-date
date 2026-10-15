@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © 2026 Roman Pasichnyk
+ * SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+ *
+ * My Orders > order: "Delivery date: Thursday, October 15, 2026, 9:00–13:00"
+ * under the order date (same markup as Magento_Sales::order/order_date.phtml).
+ *
+ * @var \Magento\Sales\Block\Order\Info $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Zero\DeliveryDate\ViewModel\Order $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+$text = $viewModel->text($block->getOrder());
+if ($text === '') {
+    return;
+}
+?>
+<div class="order-date order-delivery-date">
+    <span class="label"><?= $escaper->escapeHtml(__('Delivery date:')) ?></span>
+    <span><?= $escaper->escapeHtml($text) ?></span>
+</div>

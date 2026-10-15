@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © 2026 Roman Pasichnyk
+ * SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+ *
+ * The order e-mail, after the items: the requested delivery date. The
+ * e-mail's layout directive passes `order` (or only `order_id`).
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Zero\DeliveryDate\ViewModel\Order $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+$order = $block->getData('order');
+if (!$order instanceof \Magento\Sales\Model\Order) {
+    $order = $block->getData('order_id') ? $viewModel->load((int) $block->getData('order_id')) : null;
+}
+$text = $viewModel->text($order);
+if ($text === '') {
+    return;
+}
+?>
+<p class="zero-delivery-date" style="margin:16px 0 0;font-size:14px;">
+    <strong><?= $escaper->escapeHtml(__('Delivery date:')) ?></strong>
+    <?= $escaper->escapeHtml($text) ?>
+</p>

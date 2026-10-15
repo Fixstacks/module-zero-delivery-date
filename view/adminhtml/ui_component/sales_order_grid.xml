@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    Sales > Orders: a "Delivery Date" column (sales_order_grid.zero_delivery_date,
+    etc/di.xml), sortable and filterable by date range.
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_columns">
+        <column name="zero_delivery_date" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date" sortOrder="55">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <dateFormat>MMM d, y</dateFormat>
+                <timezone>false</timezone>
+                <label translate="true">Delivery Date</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    My Orders > order: the delivery date under the order date, in the title area.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.main.title">
+            <block class="Magento\Sales\Block\Order\Info" name="zero.delivery.date.order" after="order.date"
+                   template="Zero_DeliveryDate::order/delivery-date.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Zero\DeliveryDate\ViewModel\Order</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

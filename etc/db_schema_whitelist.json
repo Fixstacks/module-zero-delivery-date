@@ -1,0 +1,22 @@
+{
+    "quote": {
+        "column": {
+            "zero_delivery_date": true,
+            "zero_delivery_slot": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "zero_delivery_date": true,
+            "zero_delivery_slot": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "zero_delivery_date": true
+        },
+        "index": {
+            "SALES_ORDER_GRID_ZERO_DELIVERY_DATE": true
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    Sales > Orders > order: a "Delivery" section under the order information.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="order_additional_info">
+            <block class="Magento\Sales\Block\Adminhtml\Order\AbstractOrder" name="zero.delivery.date.admin"
+                   template="Zero_DeliveryDate::order/delivery-date.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Zero\DeliveryDate\ViewModel\Order</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

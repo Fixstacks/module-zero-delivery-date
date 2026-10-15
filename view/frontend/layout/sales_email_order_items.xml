@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    The order e-mail: the delivery date after the items table. The block is a
+    child of `items` and printed by Plugin\Email\ItemsDeliveryDate; the
+    e-mail's layout directive hands every block its `order` / `order_id`.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="items">
+            <block class="Magento\Framework\View\Element\Template" name="zero.delivery.date.email"
+                   template="Zero_DeliveryDate::email/delivery-date.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Zero\DeliveryDate\ViewModel\Order</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

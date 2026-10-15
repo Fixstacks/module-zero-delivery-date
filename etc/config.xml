@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <zero_delivery_date>
+            <general>
+                <enabled>1</enabled>
+                <required>0</required>
+                <label></label>
+                <lead_days>1</lead_days>
+                <days_offered>14</days_offered>
+                <cutoff_hour></cutoff_hour>
+                <excluded_weekdays>0</excluded_weekdays>
+                <excluded_dates></excluded_dates>
+                <slots></slots>
+            </general>
+        </zero_delivery_date>
+    </default>
+</config>

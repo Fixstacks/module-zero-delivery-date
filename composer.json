@@ -1,0 +1,45 @@
+{
+    "name": "fixstacks/module-zero-delivery-date",
+    "description": "Zero for Magento Open Source: a delivery date and time window picked in checkout, kept on the order and shown everywhere the order is.",
+    "type": "magento2-module",
+    "version": "1.1.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Roman Pasichnyk"
+        }
+    ],
+    "homepage": "https://fixstacks.com/zero",
+    "keywords": [
+        "magento",
+        "magento2",
+        "magento-open-source",
+        "zero",
+        "delivery-date",
+        "checkout"
+    ],
+    "require": {
+        "php": "~8.2.0||~8.3.0||~8.4.0",
+        "magento/framework": "103.0.*",
+        "magento/module-backend": "*",
+        "magento/module-checkout": "*",
+        "magento/module-config": "*",
+        "magento/module-quote": "*",
+        "magento/module-sales": "*",
+        "magento/module-store": "*",
+        "magento/module-ui": "*",
+        "fixstacks/module-zero-core": "^1.1",
+        "fixstacks/module-zero-checkout": "^1.1"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Zero\\DeliveryDate\\": ""
+        }
+    }
+}

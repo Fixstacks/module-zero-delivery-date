@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="zero_delivery_date" translate="label" type="text" sortOrder="47" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Delivery Date</label>
+            <tab>zero</tab>
+            <resource>Zero_DeliveryDate::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Delivery Date</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <comment>A delivery date picked under the shipping methods in Zero Checkout, kept on the order.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="required" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Required</label>
+                    <comment>No: the shopper can leave it as "No preference".</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="label" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Field Label</label>
+                    <comment>Empty: "Delivery date".</comment>
+                </field>
+                <field id="lead_days" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Earliest Delivery (Days From Today)</label>
+                    <comment>0: today can be picked; 1: tomorrow at the earliest.</comment>
+                    <validate>validate-zero-or-greater validate-digits</validate>
+                </field>
+                <field id="cutoff_hour" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cut-Off Hour</label>
+                    <comment>Orders placed from this hour on (store time, 0–23) start one day later. Empty: no cut-off.</comment>
+                    <validate>validate-zero-or-greater validate-digits validate-digits-range digits-range-0-23</validate>
+                </field>
+                <field id="days_offered" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Days Offered</label>
+                    <comment>How many calendar days, from the earliest one, the shopper picks from; excluded days are skipped.</comment>
+                    <validate>validate-greater-than-zero validate-digits</validate>
+                </field>
+                <field id="excluded_weekdays" translate="label comment" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>No Delivery On</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Weekdays</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="excluded_dates" translate="label comment" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Excluded Dates</label>
+                    <comment>Holidays, one per line, as YYYY-MM-DD.</comment>
+                </field>
+                <field id="slots" translate="label comment" type="textarea" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Time Windows</label>
+                    <comment>One per line, e.g. "9:00–13:00". Empty: the shopper picks a date only.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

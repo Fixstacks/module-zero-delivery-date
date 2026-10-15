@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    The requested delivery date and time window: on the quote while the
+    shopper is in checkout, copied to the order as it is placed
+    (Observer\CopyToOrder), and in the orders grid for the column.
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="checkout">
+        <column xsi:type="date" name="zero_delivery_date" nullable="true" comment="Requested Delivery Date"/>
+        <column xsi:type="varchar" name="zero_delivery_slot" length="64" nullable="true" comment="Requested Delivery Time"/>
+    </table>
+    <table name="sales_order" resource="sales">
+        <column xsi:type="date" name="zero_delivery_date" nullable="true" comment="Requested Delivery Date"/>
+        <column xsi:type="varchar" name="zero_delivery_slot" length="64" nullable="true" comment="Requested Delivery Time"/>
+    </table>
+    <table name="sales_order_grid" resource="sales">
+        <column xsi:type="date" name="zero_delivery_date" nullable="true" comment="Requested Delivery Date"/>
+        <index referenceId="SALES_ORDER_GRID_ZERO_DELIVERY_DATE" indexType="btree">
+            <column name="zero_delivery_date"/>
+        </index>
+    </table>
+</schema>

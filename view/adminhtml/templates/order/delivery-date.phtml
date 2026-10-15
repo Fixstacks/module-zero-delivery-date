@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2026 Roman Pasichnyk
+ * SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+ *
+ * Sales > Orders > order: the requested delivery date, as its own section
+ * under the order information (nothing when none was picked).
+ *
+ * @var \Magento\Sales\Block\Adminhtml\Order\AbstractOrder $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Zero\DeliveryDate\ViewModel\Order $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+$text = $viewModel->text($block->getOrder());
+if ($text === '') {
+    return;
+}
+?>
+<section class="admin__page-section zero-delivery-date">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $escaper->escapeHtml(__('Delivery')) ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <table class="admin__table-secondary">
+            <tr>
+                <th><?= $escaper->escapeHtml(__('Requested delivery date')) ?></th>
+                <td><?= $escaper->escapeHtml($text) ?></td>
+            </tr>
+        </table>
+    </div>
+</section>
