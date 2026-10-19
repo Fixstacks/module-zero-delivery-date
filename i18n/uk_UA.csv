@@ -8,3 +8,7 @@
 "Delivery","Доставка"
 "Requested delivery date","Бажана дата доставки"
 "Delivery Date","Дата доставки"
+"Order within %1 for delivery as early as %2","Замовте протягом %1, і доставимо вже %2"
+"Delivery as early as %1","Доставка вже %1"
+"%1 h %2 min","%1 год %2 хв"
+"%1 min","%1 хв"

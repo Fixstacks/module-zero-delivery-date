@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © 2026 Roman Pasichnyk
+ * SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+ *
+ * The delivery estimate under the price: the Delivery Date rules as JSON (the
+ * storefront's CSP allows no inline scripts) and an empty line eta.js fills.
+ * Hidden without JavaScript: a date written into a cached page goes stale.
+ *
+ * @var \Magento\Catalog\Block\Product\View $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Zero\DeliveryDate\ViewModel\Eta $eta
+ */
+$eta = $block->getData('eta');
+if (!$eta || !$eta->isShown($block->getProduct())) {
+    return;
+}
+?>
+<p class="zero-eta flex items-center gap-2 text-sm mt-3 mb-4" data-zero-eta hidden>
+    <svg class="w-4 h-4 shrink-0 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>
+    <span data-zero-eta-text></span>
+</p>
+<script type="application/json" id="zero-eta-settings"><?= /* @noEscape */ json_encode($eta->settings(), JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) ?></script>
+<script src="<?= $escaper->escapeUrl($block->getViewFileUrl('Zero_DeliveryDate::js/eta.js')) ?>" defer></script>

@@ -54,6 +54,14 @@
                     <comment>One per line, e.g. "9:00–13:00". Empty: the shopper picks a date only.</comment>
                 </field>
             </group>
+            <group id="eta" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Delivery Estimate on Product Pages</label>
+                <comment>"Order within 3 h 12 min for delivery as early as Thursday, October 22" under the price of a product in stock, from the dates above (earliest delivery, cut-off hour, days without delivery). Worked out in the shopper's browser, so it stays right on a cached page.</comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show the Delivery Estimate</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
         </section>
     </system>
 </config>

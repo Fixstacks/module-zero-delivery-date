@@ -73,6 +73,18 @@ Stores > Configuration > Zero > Delivery Date:
   checkout and sees it on the order page; `delivery-date-admin.spec.ts`: the
   admin order page shows it.
 
+## Delivery estimate on product pages
+
+"Order within 3 h 12 min for delivery as early as Thursday, October 22"
+under the price of a product in stock (not virtual): the first day the
+checkout would offer, by the same rules (earliest delivery, one day more
+past the cut-off hour, days and dates without delivery). Without a cut-off
+hour, "Delivery as early as …". eta.js works it out in the shopper's
+browser in the store's time zone and re-counts every minute: the page is
+cached, so a date written into it would go stale. Hidden without
+JavaScript. Stores > Configuration > Zero > Delivery Date > Delivery
+Estimate on Product Pages (off by default).
+
 ## License
 
 OSL-3.0 or AFL-3.0, your choice: see `NOTICE.md`.

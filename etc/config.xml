@@ -17,6 +17,9 @@
                 <excluded_dates></excluded_dates>
                 <slots></slots>
             </general>
+            <eta>
+                <enabled>0</enabled>
+            </eta>
         </zero_delivery_date>
     </default>
 </config>

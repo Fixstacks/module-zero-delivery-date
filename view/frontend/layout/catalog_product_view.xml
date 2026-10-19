@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    The delivery estimate under the price (Stores > Configuration > Zero >
+    Delivery Date > Delivery Estimate on Product Pages).
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="zero.delivery.eta"
+                   template="Zero_DeliveryDate::product/eta.phtml" after="product.info.price">
+                <arguments>
+                    <argument name="eta" xsi:type="object">Zero\DeliveryDate\ViewModel\Eta</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
