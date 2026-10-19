@@ -2,7 +2,7 @@
     "name": "fixstacks/module-zero-delivery-date",
     "description": "Zero for Magento Open Source: a delivery date and time window picked in checkout, kept on the order and shown everywhere the order is.",
     "type": "magento2-module",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
