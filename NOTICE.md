@@ -1,4 +1,4 @@
-# fixstacks/module-zero-delivery-date — licensing
+# zerofront/module-zero-delivery-date — licensing
 
 Copyright © 2026 Roman Pasichnyk.
 
